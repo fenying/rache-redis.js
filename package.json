@@ -1,0 +1,44 @@
+{
+  "name": "@litert/rache-redis",
+  "version": "0.1.0",
+  "description": "The redis driver for Rache.js.",
+  "main": "./libs/index.js",
+  "scripts": {
+    "prepare": "npm run rebuild",
+    "build": "tsc -p tsconfig.json",
+    "rebuild": "npm run clean && npm run lint && npm run build",
+    "test": "echo See directory sources/samples",
+    "clean": "rm -rf libs samples",
+    "lint": "tslint -p . -c tslint.json"
+  },
+  "keywords": [
+    "litert",
+    "lrt",
+    "redis",
+    "driver",
+    "rache"
+  ],
+  "author": "Angus.Fenying <fenying@litert.org> (https://fenying.net)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litert/rache-redis.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/litert/rache-redis.js/issues"
+  },
+  "homepage": "https://github.com/litert/rache-redis.js#readme",
+  "types": "./libs/index.d.ts",
+  "typings": "./libs/index.d.ts",
+  "dependencies": {
+    "@litert/rache": "^0.1.0",
+    "@litert/redis": "^0.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^10.5.2",
+    "typescript": "^2.8.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
