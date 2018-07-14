@@ -1,13 +1,13 @@
 {
   "name": "@litert/rache-redis",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The redis driver for Rache.js.",
   "main": "./libs/index.js",
   "scripts": {
     "prepare": "npm run rebuild",
     "build": "tsc -p tsconfig.json",
     "rebuild": "npm run clean && npm run lint && npm run build",
-    "test": "echo See directory sources/samples",
+    "test": "echo See directory src/samples",
     "clean": "rm -rf libs samples",
     "lint": "tslint -p . -c tslint.json"
   },
@@ -31,7 +31,7 @@
   "types": "./libs/index.d.ts",
   "typings": "./libs/index.d.ts",
   "dependencies": {
-    "@litert/rache": "^0.1.0",
+    "@litert/rache": "^0.2.0",
     "@litert/redis": "^0.1.7"
   },
   "devDependencies": {
@@ -39,6 +39,6 @@
     "typescript": "^2.8.1"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.9.0"
   }
 }

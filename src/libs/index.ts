@@ -27,7 +27,7 @@ implements Rache.IDriver {
         this._redisClient = redisClient;
     }
 
-    public async exists(key: string): Promise<boolean | symbol> {
+    public async exists(key: string): Promise<boolean | undefined> {
 
         let result = await this._redisClient.get(key);
 
@@ -38,7 +38,7 @@ implements Rache.IDriver {
 
         if (result.length === 0) {
 
-            return Rache.NO_DATA;
+            return undefined;
         }
 
         return true;
@@ -55,7 +55,7 @@ implements Rache.IDriver {
 
         if (result.length === 0) {
 
-            return Rache.NO_DATA;
+            return undefined;
         }
 
         return result;
@@ -79,7 +79,7 @@ implements Rache.IDriver {
             }
             else if (data.length === 0) {
 
-                ret[key] = Rache.NO_DATA;
+                ret[key] = undefined;
             }
             else {
 
@@ -96,7 +96,7 @@ implements Rache.IDriver {
         ttl: number
     ): Promise<boolean> {
 
-        if (typeof data === "symbol") {
+        if (data === undefined) {
 
             if (ttl > 0) {
 
@@ -135,7 +135,7 @@ implements Rache.IDriver {
 
                 const item = data[key];
 
-                if (typeof item === "symbol") {
+                if (item === undefined) {
 
                     caches[key] = "";
                 }
@@ -159,7 +159,7 @@ implements Rache.IDriver {
 
                 prs.push(this._redisClient.setEX(
                     key,
-                    typeof item === "symbol" ? "" : item,
+                    item === undefined ? "" : item,
                     ttl
                 ));
             }
